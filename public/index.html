@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>InsertOneWord Companion</title>
+
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <div id="card">
+      <div id="word"></div>
+      <div id="progress-bar">
+        <div id="progress-fill"></div>
+      </div>
+      <div id="answer" class="hidden"></div>
+    </div>
+
+    <div id="buttons" class="hidden">
+      <button id="known">覚えた</button>
+      <button id="unknown">まだ</button>
+    </div>
+  </div>
+
+  <script type="module" src="../src/app.js"></script>
+</body>
+</html>
