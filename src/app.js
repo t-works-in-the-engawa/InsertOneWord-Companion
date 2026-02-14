@@ -3,13 +3,11 @@ import { state } from "./state.js";
 import { getNextWord } from "./logic.js";
 import { loadStatus, saveStatus, updateVisit } from "./storage.js";
 
-const enEl = document.getElementById("word-en");
-const jaEl = document.getElementById("word-ja");
-const videoLink = document.getElementById("video-link");
+const wordEl = document.getElementById("word");
+const answerEl = document.getElementById("answer");
 
-const btnKnown = document.getElementById("btn-known");
-const btnUnknown = document.getElementById("btn-unknown");
-const btnNext = document.getElementById("btn-next");
+const btnKnown = document.getElementById("known");
+const btnUnknown = document.getElementById("unknown");
 
 init();
 
@@ -31,20 +29,23 @@ function startRound() {
 
   state.phase = "thinking";
 
-  // まず英語だけ表示
-  enEl.textContent = w.en;
-  jaEl.textContent = "";
-  videoLink.href = w.video;
+  // 英語表示
+  wordEl.textContent = w.en;
+
+  // 日本語は隠す
+  answerEl.textContent = "";
+  answerEl.classList.remove("show");
 
   disableButtons();
 
-  // 3秒後 → 日本語表示
+  // 3秒後に答え表示
   state.timerIds.push(setTimeout(() => {
     state.phase = "revealed";
-    jaEl.textContent = w.ja;
+    answerEl.textContent = w.ja;
+    answerEl.classList.add("show");
   }, 3000));
 
-  // 6秒後 → ボタン有効化
+  // 6秒後にボタン有効化
   state.timerIds.push(setTimeout(() => {
     state.phase = "decision";
     enableButtons();
@@ -54,13 +55,11 @@ function startRound() {
 function disableButtons() {
   btnKnown.disabled = true;
   btnUnknown.disabled = true;
-  btnNext.disabled = true;
 }
 
 function enableButtons() {
   btnKnown.disabled = false;
   btnUnknown.disabled = false;
-  btnNext.disabled = false;
 }
 
 function clearTimers() {
@@ -84,13 +83,8 @@ btnUnknown.onclick = () => {
   nextWord();
 };
 
-btnNext.onclick = () => {
-  if (state.phase !== "decision") return;
-  nextWord();
-};
-
 function registerServiceWorker() {
   if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("service-worker.js");
+    navigator.serviceWorker.register("sw.js");
   }
 }
