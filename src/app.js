@@ -9,12 +9,31 @@ const answerEl = document.getElementById("answer");
 const btnKnown = document.getElementById("known");
 const btnUnknown = document.getElementById("unknown");
 
+const timerBar = document.getElementById("timer-bar");
+
 init();
 
 function init() {
   state.wordStatus = loadStatus();
   state.visitInfo = updateVisit();
-  nextWord();
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const wordParam = urlParams.get("word");
+
+  if (wordParam) {
+    const found = words.find(
+      w => w.en.toLowerCase() === wordParam.toLowerCase()
+    );
+    if (found) {
+      state.currentWord = found;
+      startRound();
+    } else {
+      nextWord();
+    }
+  } else {
+    nextWord();
+  }
+
   registerServiceWorker();
 }
 
@@ -29,27 +48,43 @@ function startRound() {
 
   state.phase = "thinking";
 
-  // 英語表示
   wordEl.textContent = w.en;
-
-  // 日本語は隠す
   answerEl.textContent = "";
   answerEl.classList.remove("show");
 
   disableButtons();
 
-  // 3秒後に答え表示
-  state.timerIds.push(setTimeout(() => {
+  startCountdown(3000, () => {
     state.phase = "revealed";
     answerEl.textContent = w.ja;
     answerEl.classList.add("show");
-  }, 3000));
+  });
 
-  // 6秒後にボタン有効化
   state.timerIds.push(setTimeout(() => {
     state.phase = "decision";
     enableButtons();
   }, 6000));
+}
+
+function startCountdown(duration, onComplete) {
+  const startTime = Date.now();
+  timerBar.style.width = "100%";
+
+  function animate() {
+    const elapsed = Date.now() - startTime;
+    const remaining = Math.max(0, duration - elapsed);
+    const percent = (remaining / duration) * 100;
+
+    timerBar.style.width = percent + "%";
+
+    if (remaining > 0) {
+      requestAnimationFrame(animate);
+    } else {
+      onComplete();
+    }
+  }
+
+  animate();
 }
 
 function disableButtons() {
