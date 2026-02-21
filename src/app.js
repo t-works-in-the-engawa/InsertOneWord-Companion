@@ -50,37 +50,36 @@ function startRound() {
 
   state.phase = "thinking";
 
-  // 表示クリア
+  // 初期化
   wordEl.textContent = "";
   answerEl.textContent = "";
-  wordEl.classList.remove("flip");
-  answerEl.classList.remove("flip");
-  answerEl.classList.remove("show");
-
+  document.querySelector('.flash-card-container').classList.remove('flip');
+  answerEl.classList.remove('show');
   disableButtons();
 
   const isReverse = w.dir === "jp-en";
-
   const first = isReverse ? w.ja : w.en;
   const second = isReverse ? w.en : w.ja;
 
   // 先出し
   if (isReverse) {
     answerEl.textContent = first;
+    wordEl.textContent = ""; 
   } else {
     wordEl.textContent = first;
+    answerEl.textContent = "";
   }
 
-  // タイマーで後出し → flip演出
   startCountdown(3000, () => {
     state.phase = "revealed";
 
+    // 後出し・フリップ
     if (isReverse) {
       wordEl.textContent = second;
-      answerEl.classList.add("flip"); // JP->ENはanswerがフロント
+      document.querySelector('.flash-card-container').classList.add('flip');
     } else {
       answerEl.textContent = second;
-      answerEl.classList.add("flip"); // EN->JPはanswerがフロント
+      document.querySelector('.flash-card-container').classList.add('flip');
       answerEl.classList.add("show");
     }
   });
