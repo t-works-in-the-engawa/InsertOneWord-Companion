@@ -12,7 +12,6 @@ body {
   overflow-y: auto;
 }
 
-/* カード全体をフリップ用にラップ */
 #card {
   display: flex;
   flex-direction: column;
@@ -21,33 +20,42 @@ body {
   text-align: center;
   width: 90%;
   padding: 10px;
-  perspective: 1000px; /* 3D効果の視点 */
+  perspective: 1000px;
 }
 
-/* カードラッパー */
+/* フラッシュカード */
 .flash-card-container {
   position: relative;
   width: 100%;
   max-width: 500px;
-  perspective: 1000px;
 }
 
 .flash-card {
   position: absolute;
   width: 100%;
-  backface-visibility: hidden;
-  text-align: center;
-  font-size: 3rem;
+  min-height: 120px;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 12px;
+  text-align: center;
+  backface-visibility: hidden;
   transform-style: preserve-3d;
-  transition: transform 0.6s ease;
+  transition: transform 0.6s ease, box-shadow 0.3s ease;
   word-break: break-word;
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  color: #2b5876;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
+/* 背面カード */
 .flash-card.back {
   transform: rotateY(180deg);
   font-size: 2rem;
+  background: #fffa;
+  color: #000;
 }
 
 /* flipで前面と背面を切り替え */
@@ -57,6 +65,17 @@ body {
 
 .flash-card-container.flip .back {
   transform: rotateY(0deg);
+}
+
+/* カード傾き演出 */
+.flash-card.tilt {
+  animation: tiltCard 3s ease forwards;
+}
+
+@keyframes tiltCard {
+  0%   { transform: rotateY(0deg) rotateZ(0deg); }
+  50%  { transform: rotateY(0deg) rotateZ(3deg); }
+  100% { transform: rotateY(0deg) rotateZ(-3deg); }
 }
 
 /* ボタン */
