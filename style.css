@@ -73,6 +73,13 @@ button {
   cursor: pointer;
 }
 
+#buttons {
+  display: flex;
+  justify-content: center; /* 横方向中央揃え */
+  gap: 20px;               /* ボタン間の隙間 */
+  margin-top: 20px;        /* 上マージンでカードとの距離を確保 */
+}
+
 #buttons button {
   background: #fff;
   color: #2b5876;
