@@ -45,49 +45,23 @@ function nextWord() {
   startRound();
 }
 
-function startRound() {
-  const w = state.currentWord;
+function disableButtons() {
+  btnKnown.disabled = true;
+  btnUnknown.disabled = true;
+}
 
-  state.phase = "thinking";
+function enableButtons() {
+  btnKnown.disabled = false;
+  btnUnknown.disabled = false;
 
-  // 初期化
-  wordEl.textContent = "";
-  answerEl.textContent = "";
-  const container = document.querySelector('.flash-card-container');
-  container.classList.remove('flip', 'tilt');
-  answerEl.classList.remove('show');
-  disableButtons();
+  // 跳ねるアニメーション
+  btnKnown.classList.add("flash");
+  btnUnknown.classList.add("flash");
 
-  const isReverse = w.dir === "jp-en";
-  const first = isReverse ? w.ja : w.en;
-  const second = isReverse ? w.en : w.ja;
-
-  // 先出し
-  if (isReverse) {
-    answerEl.textContent = first;
-    wordEl.textContent = "";
-  } else {
-    wordEl.textContent = first;
-    answerEl.textContent = "";
-  }
-
-  // タイマーで後出し・フリップ・傾き
-  startCountdown(3000, () => {
-    state.phase = "revealed";
-    if (isReverse) {
-      wordEl.textContent = second;
-      container.classList.add('flip', 'tilt');
-    } else {
-      answerEl.textContent = second;
-      container.classList.add('flip', 'tilt');
-      answerEl.classList.add("show");
-    }
-  });
-
-  state.timerIds.push(setTimeout(() => {
-    state.phase = "decision";
-    enableButtons();
-  }, 6000));
+  setTimeout(() => {
+    btnKnown.classList.remove("flash");
+    btnUnknown.classList.remove("flash");
+  }, 300); // animation-duration に合わせる
 }
 
 function startCountdown(duration, onComplete) {
