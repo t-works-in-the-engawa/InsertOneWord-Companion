@@ -45,12 +45,12 @@ function nextWord() {
 
 function startRound() {
   const w = state.currentWord;
-
   state.phase = "thinking";
 
   // 表示クリア
   wordEl.textContent = "";
   answerEl.textContent = "";
+  wordEl.classList.remove("show");
   answerEl.classList.remove("show");
 
   disableButtons();
@@ -61,24 +61,29 @@ function startRound() {
   const first = isReverse ? w.ja : w.en;
   const second = isReverse ? w.en : w.ja;
 
-  // 先出し
+  // 先出し表示
   if (isReverse) {
     answerEl.textContent = first;
+    answerEl.classList.add("show"); // JP→ENのときも表示
   } else {
     wordEl.textContent = first;
+    wordEl.classList.add("show"); // EN→JPのときも表示
   }
 
+  // 3秒後に後出し
   startCountdown(3000, () => {
     state.phase = "revealed";
 
     if (isReverse) {
-      wordEl.textContent = second;
+      wordEl.textContent = second;      // JP→EN: 英語をwordElに表示
+      wordEl.classList.add("show");     // 表示クラス追加
     } else {
-      answerEl.textContent = second;
-      answerEl.classList.add("show");
+      answerEl.textContent = second;    // EN→JP: 日本語をanswerElに表示
+      answerEl.classList.add("show");   // 表示クラス追加
     }
   });
 
+  // 6秒後に選択可能
   state.timerIds.push(setTimeout(() => {
     state.phase = "decision";
     enableButtons();
