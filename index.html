@@ -1,86 +1,38 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>UX Test</title>
-<style>
-body {
-  font-family: sans-serif;
-  text-align: center;
-  padding-top: 60px;
-}
-.word {
-  font-size: 2rem;
-}
-.jp {
-  margin-top: 20px;
-  font-size: 1.5rem;
-  color: gray;
-}
-iframe {
-  width: 100%;
-  max-width: 400px;
-  height: 600px;
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>InsertOneWord Companion</title>
+
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J9DX84KED7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-J9DX84KED7');
+  </script>
 </head>
 <body>
+  <div id="app">
+    <div id="card">
+      <div id="word"></div>
+      <div class="timer-container">
+        <div id="timer-bar"></div>
+      </div>
+      <div id="answer" class="hidden"></div>
+    </div>
 
-<h3 id="time"></h3>
-<div id="content"></div>
+    <div id="buttons" class="hidden">
+      <button id="known">覚えた</button>
+      <button id="unknown">まだ</button>
+    </div>
+  </div>
 
-<script>
-const start = performance.now();
-
-window.onload = () => {
-  const end = performance.now();
-  document.getElementById("time").innerText =
-    "表示時間: " + ((end - start) / 1000).toFixed(2) + "秒";
-};
-
-const params = new URLSearchParams(window.location.search);
-const mode = params.get("mode") || "text";
-
-const content = document.getElementById("content");
-
-if (mode === "yt") {
-
-  content.innerHTML = `
-    <iframe 
-      src="https://www.youtube.com/embed/MGS-3Cgigbk"
-      frameborder="0"
-      allowfullscreen>
-    </iframe>
-  `;
-
-} else if (mode === "tiktok") {
-
-  content.innerHTML = `
-    <blockquote 
-      class="tiktok-embed"
-      cite="https://www.tiktok.com/@t_works_/video/7607585231163526407"
-      data-video-id="7607585231163526407"
-      style="max-width:400px;">
-    </blockquote>
-  `;
-
-  const script = document.createElement("script");
-  script.src = "https://www.tiktok.com/embed.js";
-  script.async = true;
-  document.body.appendChild(script);
-} else {
-
-  content.innerHTML = `
-    <div class="word">important</div>
-    <div class="jp" id="jp"></div>
-  `;
-
-  setTimeout(() => {
-    document.getElementById("jp").innerText = "重要な";
-  }, 3000);
-}
-</script>
-
+  <script type="module" src="src/app.js"></script>
 </body>
 </html>
