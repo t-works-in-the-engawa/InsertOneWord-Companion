@@ -48,16 +48,35 @@ function startRound() {
 
   state.phase = "thinking";
 
-  wordEl.textContent = w.en;
+  // 表示クリア
+  wordEl.textContent = "";
   answerEl.textContent = "";
   answerEl.classList.remove("show");
 
   disableButtons();
 
+  const isReverse = w.dir === "jp-en";
+
+  // 先に表示する内容
+  const first = isReverse ? w.ja : w.en;
+  const second = isReverse ? w.en : w.ja;
+
+  // 先出し
+  if (isReverse) {
+    answerEl.textContent = first;
+  } else {
+    wordEl.textContent = first;
+  }
+
   startCountdown(3000, () => {
     state.phase = "revealed";
-    answerEl.textContent = w.ja;
-    answerEl.classList.add("show");
+
+    if (isReverse) {
+      wordEl.textContent = second;
+    } else {
+      answerEl.textContent = second;
+      answerEl.classList.add("show");
+    }
   });
 
   state.timerIds.push(setTimeout(() => {
