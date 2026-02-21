@@ -8,34 +8,18 @@ const answerEl = document.getElementById("answer");
 
 const btnKnown = document.getElementById("known");
 const btnUnknown = document.getElementById("unknown");
+const btnReset = document.getElementById("reset");
 
 const timerBar = document.getElementById("timer-bar");
 
 init();
 
 function init() {
-  state.wordStatus = loadStatus();
+  state.wordStatus = loadStatus() || {};
   state.visitInfo = updateVisit();
 
   disableButtons(); // 最初は押せない
-  
-  const urlParams = new URLSearchParams(window.location.search);
-  const wordParam = urlParams.get("word");
-
-  if (wordParam) {
-    const found = words.find(
-      w => w.en.toLowerCase() === wordParam.toLowerCase()
-    );
-    if (found) {
-      state.currentWord = found;
-      startRound();
-    } else {
-      nextWord();
-    }
-  } else {
-    nextWord();
-  }
-
+  nextWord();
   registerServiceWorker();
 }
 
@@ -49,12 +33,10 @@ function startRound() {
   const w = state.currentWord;
   state.phase = "thinking";
 
-  // 先に表示する内容
   const isReverse = w.dir === "jp-en";
   const first = isReverse ? w.ja : w.en;
   const second = isReverse ? w.en : w.ja;
 
-  // 表示クリア
   wordEl.textContent = "";
   answerEl.textContent = "";
   wordEl.classList.remove("reveal");
@@ -71,7 +53,7 @@ function startRound() {
     wordEl.classList.add("reveal");
   }
 
-  // 後出し（3秒後）
+  // 後出し
   startCountdown(3000, () => {
     state.phase = "revealed";
     if (isReverse) {
@@ -83,7 +65,7 @@ function startRound() {
     }
   });
 
-  // 選択可能（6秒後）
+  // 選択可能
   state.timerIds.push(setTimeout(() => {
     state.phase = "decision";
     enableButtons();
@@ -98,7 +80,6 @@ function startCountdown(duration, onComplete) {
     const elapsed = Date.now() - startTime;
     const remaining = Math.max(0, duration - elapsed);
     const percent = (remaining / duration) * 100;
-
     timerBar.style.width = percent + "%";
 
     if (remaining > 0) {
@@ -107,7 +88,6 @@ function startCountdown(duration, onComplete) {
       onComplete();
     }
   }
-
   animate();
 }
 
@@ -120,14 +100,13 @@ function enableButtons() {
   btnKnown.disabled = false;
   btnUnknown.disabled = false;
 
-  // 跳ねるアニメーション
   btnKnown.classList.add("flash");
   btnUnknown.classList.add("flash");
 
   setTimeout(() => {
     btnKnown.classList.remove("flash");
     btnUnknown.classList.remove("flash");
-  }, 300); // animation-duration に合わせる
+  }, 300);
 }
 
 function clearTimers() {
@@ -135,35 +114,29 @@ function clearTimers() {
   state.timerIds = [];
 }
 
+// ボタン処理
 btnKnown.onclick = () => {
   if (state.phase !== "decision") return;
-
   state.wordStatus[state.currentWord.id] = "known";
   saveStatus(state.wordStatus);
-
-  // すべての単語が「known」になったかチェック
-  const allKnown = words.every(w => state.wordStatus[w.id] === "known");
-
-  if (allKnown) {
-    // リセット
-    state.wordStatus = {};
-    saveStatus(state.wordStatus);
-
-    // 初期状態に戻して次のラウンド開始
-    alert("全単語完了！学習状況をリセットしました。");
-  }
-
   nextWord();
 };
 
 btnUnknown.onclick = () => {
   if (state.phase !== "decision") return;
-
   state.wordStatus[state.currentWord.id] = "unknown";
   saveStatus(state.wordStatus);
   nextWord();
 };
 
+// リセットボタン
+btnReset.onclick = () => {
+  state.wordStatus = {};
+  saveStatus(state.wordStatus);
+  nextWord();
+};
+
+// サービスワーカー
 function registerServiceWorker() {
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("sw.js");
