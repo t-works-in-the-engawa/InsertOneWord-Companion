@@ -78,9 +78,23 @@ button {
   color: #2b5876;
 }
 
+/* 無効時のボタン見た目 */
 #buttons button:disabled {
-  opacity: 0.5;         /* 見た目も半透明に */
-  cursor: not-allowed;  /* 押せないカーソル */
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: scale(1);
+  transition: all 0.2s ease;
+}
+
+/* 有効化時のアニメーション */
+#buttons button.flash {
+  animation: buttonFlash 0.3s ease;
+}
+
+@keyframes buttonFlash {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.2); }
+  100% { transform: scale(1); }
 }
 
 /* レスポンシブ：スマホ向け */
