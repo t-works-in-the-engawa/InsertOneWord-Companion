@@ -1,3 +1,12 @@
+#card {
+  text-align: center;
+  width: 90%;
+  padding: 10px;
+}
+body {
+  overflow-y: auto;
+}
+
 .flash-card {
   font-size: 2.5rem;
   margin: 20px 0;
@@ -13,6 +22,30 @@
 
 #word {
   font-size: 3rem;
+}
+
+#answer {
+  font-size: 2rem;
+}
+
+/* スマホ向け */
+@media (max-width: 480px) {
+  #word {
+    font-size: 2rem;   /* 小さめに */
+  }
+  #answer {
+    font-size: 1.5rem; /* 小さめに */
+  }
+}
+
+/* タブレット向け */
+@media (min-width: 481px) and (max-width: 768px) {
+  #word {
+    font-size: 2.5rem;
+  }
+  #answer {
+    font-size: 1.8rem;
+  }
 }
 
 .timer-container {
