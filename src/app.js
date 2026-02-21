@@ -120,15 +120,14 @@ function enableButtons() {
   btnKnown.disabled = false;
   btnUnknown.disabled = false;
 
-  // 軽く跳ねるアニメーション
+  // 跳ねるアニメーション
   btnKnown.classList.add("flash");
   btnUnknown.classList.add("flash");
 
-  // アニメーション終了後にクラスを削除
   setTimeout(() => {
     btnKnown.classList.remove("flash");
     btnUnknown.classList.remove("flash");
-  }, 300); // animation-duration と合わせる
+  }, 300); // animation-duration に合わせる
 }
 
 function clearTimers() {
