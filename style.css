@@ -96,11 +96,29 @@ body {
   100% { transform: scale(1); }
 }
 
+/* リセットボタン */
+#reset-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+#reset-container button {
+  font-size: 1.1rem;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background: #fff;
+  color: #2b5876;
+}
+
 /* レスポンシブ：スマホ */
 @media (max-width: 480px) {
   #word { font-size: 2rem; }
   #answer { font-size: 1.5rem; }
   #buttons button { font-size: 1rem; padding: 10px 16px; }
+  #reset-container button { font-size: 0.9rem; padding: 8px 12px; }
 }
 
 /* タブレット */
@@ -108,4 +126,5 @@ body {
   #word { font-size: 2.5rem; }
   #answer { font-size: 1.8rem; }
   #buttons button { font-size: 1.1rem; padding: 11px 18px; }
+  #reset-container button { font-size: 1rem; padding: 8px 14px; }
 }
