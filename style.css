@@ -9,26 +9,27 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  overflow-y: auto; /* はみ出してもスクロール可能 */
+  overflow-y: auto;
 }
 
 #card {
   display: flex;
   flex-direction: column;
-  align-items: center;  /* 中央寄せ */
+  align-items: center;  
   justify-content: center;
   text-align: center;
   width: 90%;
   padding: 10px;
 }
 
+/* 単語・答えカード */
 .flash-card {
-  display: inline-block;   /* テキスト幅に合わせる */
+  display: inline-block;
   text-align: center;
   opacity: 0;
   transform: scale(0.9);
   transition: all 0.3s ease;
-  word-break: break-word;  /* 長い単語でも折り返す */
+  word-break: break-word;
 }
 
 .flash-card.reveal {
@@ -36,7 +37,6 @@ body {
   transform: scale(1.1);
 }
 
-/* 単語・答えサイズ */
 #word {
   font-size: 3rem;
   margin-bottom: 20px;
@@ -64,36 +64,28 @@ body {
 }
 
 /* ボタン */
-button {
-  font-size: 1.2rem;
-  padding: 12px;
-  margin: 10px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
 #buttons {
   display: flex;
-  justify-content: center; /* 横方向中央揃え */
+  justify-content: center; /* 中央揃え */
   gap: 20px;               /* ボタン間の隙間 */
-  margin-top: 20px;        /* 上マージンでカードとの距離を確保 */
+  margin-top: 20px;
 }
 
 #buttons button {
-  background: #fff;
-  color: #2b5876;
-}
-
-/* 無効時のボタン見た目 */
-#buttons button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  transform: scale(1);
+  font-size: 1.2rem;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
   transition: all 0.2s ease;
 }
 
-/* 有効化時のアニメーション */
+#buttons button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ボタン有効化時の跳ねるアニメーション */
 #buttons button.flash {
   animation: buttonFlash 0.3s ease;
 }
@@ -104,22 +96,16 @@ button {
   100% { transform: scale(1); }
 }
 
-/* レスポンシブ：スマホ向け */
+/* レスポンシブ：スマホ */
 @media (max-width: 480px) {
-  #word {
-    font-size: 2rem;
-  }
-  #answer {
-    font-size: 1.5rem;
-  }
+  #word { font-size: 2rem; }
+  #answer { font-size: 1.5rem; }
+  #buttons button { font-size: 1rem; padding: 10px 16px; }
 }
 
-/* タブレット向け */
+/* タブレット */
 @media (min-width: 481px) and (max-width: 768px) {
-  #word {
-    font-size: 2.5rem;
-  }
-  #answer {
-    font-size: 1.8rem;
-  }
+  #word { font-size: 2.5rem; }
+  #answer { font-size: 1.8rem; }
+  #buttons button { font-size: 1.1rem; padding: 11px 18px; }
 }
