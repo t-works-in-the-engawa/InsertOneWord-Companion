@@ -53,7 +53,8 @@ function startRound() {
   // 初期化
   wordEl.textContent = "";
   answerEl.textContent = "";
-  document.querySelector('.flash-card-container').classList.remove('flip');
+  const container = document.querySelector('.flash-card-container');
+  container.classList.remove('flip', 'tilt');
   answerEl.classList.remove('show');
   disableButtons();
 
@@ -64,22 +65,21 @@ function startRound() {
   // 先出し
   if (isReverse) {
     answerEl.textContent = first;
-    wordEl.textContent = ""; 
+    wordEl.textContent = "";
   } else {
     wordEl.textContent = first;
     answerEl.textContent = "";
   }
 
+  // タイマーで後出し・フリップ・傾き
   startCountdown(3000, () => {
     state.phase = "revealed";
-
-    // 後出し・フリップ
     if (isReverse) {
       wordEl.textContent = second;
-      document.querySelector('.flash-card-container').classList.add('flip');
+      container.classList.add('flip', 'tilt');
     } else {
       answerEl.textContent = second;
-      document.querySelector('.flash-card-container').classList.add('flip');
+      container.classList.add('flip', 'tilt');
       answerEl.classList.add("show");
     }
   });
