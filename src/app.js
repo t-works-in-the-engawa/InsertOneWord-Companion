@@ -52,6 +52,8 @@ function startRound() {
   answerEl.textContent = "";
   wordEl.classList.remove("show");
   answerEl.classList.remove("show");
+  wordEl.style.display = "none";
+  answerEl.style.display = "none";
 
   disableButtons();
 
@@ -64,10 +66,12 @@ function startRound() {
   // 先出し表示
   if (isReverse) {
     answerEl.textContent = first;
-    answerEl.classList.add("show"); // JP→ENのときも表示
+    answerEl.style.display = "block";  // ←ここで確実に表示
+    answerEl.classList.add("show");
   } else {
     wordEl.textContent = first;
-    wordEl.classList.add("show"); // EN→JPのときも表示
+    wordEl.style.display = "block";
+    wordEl.classList.add("show");
   }
 
   // 3秒後に後出し
@@ -75,11 +79,13 @@ function startRound() {
     state.phase = "revealed";
 
     if (isReverse) {
-      wordEl.textContent = second;      // JP→EN: 英語をwordElに表示
-      wordEl.classList.add("show");     // 表示クラス追加
+      wordEl.textContent = second;
+      wordEl.style.display = "block";   // ENを表示
+      wordEl.classList.add("show");
     } else {
-      answerEl.textContent = second;    // EN→JP: 日本語をanswerElに表示
-      answerEl.classList.add("show");   // 表示クラス追加
+      answerEl.textContent = second;
+      answerEl.style.display = "block"; // JPを表示
+      answerEl.classList.add("show");
     }
   });
 
