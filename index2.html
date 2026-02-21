@@ -65,10 +65,9 @@ if (mode === "yt") {
     </blockquote>
   `;
 
-  const script = document.createElement("script");
-  script.src = "https://www.tiktok.com/embed.js";
-  script.async = true;
-  document.body.appendChild(script);
+  if (window.tiktokEmbed) {
+    window.tiktokEmbed.load();
+  }
 } else {
 
   content.innerHTML = `
@@ -81,6 +80,6 @@ if (mode === "yt") {
   }, 3000);
 }
 </script>
-
+<script async src="https://www.tiktok.com/embed.js"></script>
 </body>
 </html>
