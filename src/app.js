@@ -47,49 +47,41 @@ function startRound() {
   const w = state.currentWord;
   state.phase = "thinking";
 
-  // 表示クリア
-  wordEl.textContent = "";
-  answerEl.textContent = "";
-  wordEl.classList.remove("show");
-  answerEl.classList.remove("show");
-  wordEl.style.display = "none";
-  answerEl.style.display = "none";
-
-  disableButtons();
-
-  const isReverse = w.dir === "jp-en";
-
   // 先に表示する内容
+  const isReverse = w.dir === "jp-en";
   const first = isReverse ? w.ja : w.en;
   const second = isReverse ? w.en : w.ja;
 
-  // 先出し表示
+  // 表示クリア
+  wordEl.textContent = "";
+  answerEl.textContent = "";
+  wordEl.classList.remove("reveal");
+  answerEl.classList.remove("reveal");
+
+  disableButtons();
+
+  // 先出し
   if (isReverse) {
     answerEl.textContent = first;
-    answerEl.style.display = "block";  // ←ここで確実に表示
-    answerEl.classList.add("show");
+    answerEl.classList.add("reveal");
   } else {
     wordEl.textContent = first;
-    wordEl.style.display = "block";
-    wordEl.classList.add("show");
+    wordEl.classList.add("reveal");
   }
 
-  // 3秒後に後出し
+  // 後出し（3秒後）
   startCountdown(3000, () => {
     state.phase = "revealed";
-
     if (isReverse) {
       wordEl.textContent = second;
-      wordEl.style.display = "block";   // ENを表示
-      wordEl.classList.add("show");
+      wordEl.classList.add("reveal");
     } else {
       answerEl.textContent = second;
-      answerEl.style.display = "block"; // JPを表示
-      answerEl.classList.add("show");
+      answerEl.classList.add("reveal");
     }
   });
 
-  // 6秒後に選択可能
+  // 選択可能（6秒後）
   state.timerIds.push(setTimeout(() => {
     state.phase = "decision";
     enableButtons();
