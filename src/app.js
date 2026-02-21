@@ -47,43 +47,44 @@ function nextWord() {
 
 function startRound() {
   const w = state.currentWord;
-  state.phase = "thinking";
 
-  // 先に表示する内容
-  const isReverse = w.dir === "jp-en";
-  const first = isReverse ? w.ja : w.en;
-  const second = isReverse ? w.en : w.ja;
+  state.phase = "thinking";
 
   // 表示クリア
   wordEl.textContent = "";
   answerEl.textContent = "";
-  wordEl.classList.remove("reveal");
-  answerEl.classList.remove("reveal");
+  wordEl.classList.remove("flip");
+  answerEl.classList.remove("flip");
+  answerEl.classList.remove("show");
 
   disableButtons();
+
+  const isReverse = w.dir === "jp-en";
+
+  const first = isReverse ? w.ja : w.en;
+  const second = isReverse ? w.en : w.ja;
 
   // 先出し
   if (isReverse) {
     answerEl.textContent = first;
-    answerEl.classList.add("reveal");
   } else {
     wordEl.textContent = first;
-    wordEl.classList.add("reveal");
   }
 
-  // 後出し（3秒後）
+  // タイマーで後出し → flip演出
   startCountdown(3000, () => {
     state.phase = "revealed";
+
     if (isReverse) {
       wordEl.textContent = second;
-      wordEl.classList.add("reveal");
+      answerEl.classList.add("flip"); // JP->ENはanswerがフロント
     } else {
       answerEl.textContent = second;
-      answerEl.classList.add("reveal");
+      answerEl.classList.add("flip"); // EN->JPはanswerがフロント
+      answerEl.classList.add("show");
     }
   });
 
-  // 選択可能（6秒後）
   state.timerIds.push(setTimeout(() => {
     state.phase = "decision";
     enableButtons();
