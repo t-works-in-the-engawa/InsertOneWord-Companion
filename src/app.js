@@ -45,23 +45,49 @@ function nextWord() {
   startRound();
 }
 
-function disableButtons() {
-  btnKnown.disabled = true;
-  btnUnknown.disabled = true;
-}
+function startRound() {
+  const w = state.currentWord;
+  state.phase = "thinking";
 
-function enableButtons() {
-  btnKnown.disabled = false;
-  btnUnknown.disabled = false;
+  // 先に表示する内容
+  const isReverse = w.dir === "jp-en";
+  const first = isReverse ? w.ja : w.en;
+  const second = isReverse ? w.en : w.ja;
 
-  // 跳ねるアニメーション
-  btnKnown.classList.add("flash");
-  btnUnknown.classList.add("flash");
+  // 表示クリア
+  wordEl.textContent = "";
+  answerEl.textContent = "";
+  wordEl.classList.remove("reveal");
+  answerEl.classList.remove("reveal");
 
-  setTimeout(() => {
-    btnKnown.classList.remove("flash");
-    btnUnknown.classList.remove("flash");
-  }, 300); // animation-duration に合わせる
+  disableButtons();
+
+  // 先出し
+  if (isReverse) {
+    answerEl.textContent = first;
+    answerEl.classList.add("reveal");
+  } else {
+    wordEl.textContent = first;
+    wordEl.classList.add("reveal");
+  }
+
+  // 後出し（3秒後）
+  startCountdown(3000, () => {
+    state.phase = "revealed";
+    if (isReverse) {
+      wordEl.textContent = second;
+      wordEl.classList.add("reveal");
+    } else {
+      answerEl.textContent = second;
+      answerEl.classList.add("reveal");
+    }
+  });
+
+  // 選択可能（6秒後）
+  state.timerIds.push(setTimeout(() => {
+    state.phase = "decision";
+    enableButtons();
+  }, 6000));
 }
 
 function startCountdown(duration, onComplete) {
