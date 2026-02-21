@@ -140,6 +140,19 @@ btnKnown.onclick = () => {
 
   state.wordStatus[state.currentWord.id] = "known";
   saveStatus(state.wordStatus);
+
+  // すべての単語が「known」になったかチェック
+  const allKnown = words.every(w => state.wordStatus[w.id] === "known");
+
+  if (allKnown) {
+    // リセット
+    state.wordStatus = {};
+    saveStatus(state.wordStatus);
+
+    // 初期状態に戻して次のラウンド開始
+    alert("全単語完了！学習状況をリセットしました。");
+  }
+
   nextWord();
 };
 
