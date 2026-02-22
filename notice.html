@@ -20,9 +20,26 @@
     section {
       margin-bottom: 20px;
     }
+
+    /* 戻るボタン風 */
+    .close-link {
+      display: inline-block;
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+      color: #4e6a7a;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .close-link:hover {
+      color: #2c3e50;
+    }
   </style>
 </head>
 <body>
+  <!-- 戻るボタン -->
+  <a class="close-link" onclick="window.close();">← 閉じる / Close</a>
+
   <h1>利用上の注意 / Usage Notice</h1>
 
   <section>
