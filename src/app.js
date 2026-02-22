@@ -39,6 +39,9 @@ function startRound() {
 
   wordEl.textContent = "";
   answerEl.textContent = "";
+  // 完了画面用クラスを削除
+  wordEl.classList.remove("completed-en");
+  answerEl.classList.remove("completed-ja");
   wordEl.classList.remove("reveal");
   answerEl.classList.remove("reveal");
 
@@ -117,19 +120,27 @@ function clearTimers() {
 function showCompletionScreen() {
   clearTimers();
   disableButtons();
-
   state.phase = "completed";
 
-  // 英語エリア（上）
-  wordEl.textContent = "🎉 All words completed!";
-  wordEl.classList.add("reveal");
+  // クラスを一度リセット
+  wordEl.classList.remove("completed-en");
+  answerEl.classList.remove("completed-ja");
 
-  // 日本語エリア（下）
-  answerEl.textContent = "新しい単語が追加されると表示されます。";
-  answerEl.classList.add("reveal");
+  // 英語エリア
+  wordEl.innerHTML =
+    "🎉 All words completed!<br>" +
+    "You will see new words when they are added.";
+  wordEl.classList.add("reveal", "completed-en");
 
-  // ボタン変更
-  btnKnown.textContent = "もう一度やる / Retry";
+  timerBar.style.width = "100%";
+
+  // 日本語エリア
+  answerEl.innerHTML =
+    "🎉 全単語クリア！<br>" +
+    "新しい単語が追加されると表示されます。";
+  answerEl.classList.add("reveal", "completed-ja");
+
+  btnKnown.textContent = "Retry";
   btnUnknown.style.display = "none";
 
   btnKnown.disabled = false;
