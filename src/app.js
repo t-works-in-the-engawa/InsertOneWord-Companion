@@ -20,8 +20,17 @@ function init() {
   state.visitInfo = updateVisit();
 
   btnReset.style.display = "none";
-  disableButtons(); // 最初は押せない
-  nextWord();
+  disableButtons();
+
+  const allKnown = words.length > 0 &&
+    words.every(w => state.wordStatus[w.id] === "known");
+
+  if (allKnown) {
+    showCompletionScreen();
+  } else {
+    nextWord();
+  }
+
   registerServiceWorker();
 }
 
