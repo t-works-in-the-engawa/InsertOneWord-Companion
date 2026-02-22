@@ -18,6 +18,7 @@ function init() {
   state.wordStatus = loadStatus() || {};
   state.visitInfo = updateVisit();
 
+  btnReset.style.display = "none";
   disableButtons(); // 最初は押せない
   nextWord();
   registerServiceWorker();
@@ -122,11 +123,9 @@ function showCompletionScreen() {
   disableButtons();
   state.phase = "completed";
 
-  // クラスを一度リセット
   wordEl.classList.remove("completed-en");
   answerEl.classList.remove("completed-ja");
 
-  // 英語エリア
   wordEl.innerHTML =
     "🎉 All words completed!<br>" +
     "You will see new words when they are added.";
@@ -134,26 +133,25 @@ function showCompletionScreen() {
 
   timerBar.style.width = "100%";
 
-  // 日本語エリア
   answerEl.innerHTML =
     "🎉 全単語クリア！<br>" +
     "新しい単語が追加されると表示されます。";
   answerEl.classList.add("reveal", "completed-ja");
 
-  btnKnown.textContent = "Retry";
-  btnUnknown.style.display = "none";
+  // 通常ボタンを隠す
+  document.getElementById("buttons").style.display = "none";
 
-  btnKnown.disabled = false;
-  btnKnown.onclick = resetProgress;
+  // リセットボタンだけ表示
+  btnReset.style.display = "inline-block";
 }
 
 function resetProgress() {
   state.wordStatus = {};
   saveStatus(state.wordStatus);
 
-  // ボタン戻す
-  btnKnown.textContent = "覚えた / Known";
-  btnUnknown.style.display = "inline-block";
+  // ボタン表示戻す
+  document.getElementById("buttons").style.display = "flex";
+  btnReset.style.display = "none";
 
   nextWord();
 }
@@ -185,11 +183,7 @@ btnUnknown.onclick = () => {
 };
 
 // リセットボタン
-btnReset.onclick = () => {
-  state.wordStatus = {};
-  saveStatus(state.wordStatus);
-  nextWord();
-};
+btnReset.onclick = resetProgress;
 
 // サービスワーカー
 function registerServiceWorker() {
