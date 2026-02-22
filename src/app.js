@@ -161,7 +161,7 @@ function cleanupStatus() {
   const validIds = new Set(words.map(w => w.id));
 
   Object.keys(state.wordStatus).forEach(id => {
-    if (!validIds.has(Number(id))) {
+    if (!validIds.has(id)) {
       delete state.wordStatus[id];
     }
   });
