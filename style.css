@@ -39,11 +39,11 @@ body {
 
 /* 完了画面専用サイズ */
 .flash-card.completed-en {
-  font-size: 1.8rem !important;
+  font-size: 1.2rem !important;
 }
 
 .flash-card.completed-ja {
-  font-size: 1.4rem !important;
+  font-size: 1.0rem !important;
 }
 
 #word {
