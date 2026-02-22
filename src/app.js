@@ -74,7 +74,7 @@ function startRound() {
   state.timerIds.push(setTimeout(() => {
     state.phase = "decision";
     enableButtons();
-  }, 6000));
+  }, 4000));
 }
 
 function startCountdown(duration, onComplete) {
