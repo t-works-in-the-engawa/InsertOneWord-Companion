@@ -2,6 +2,7 @@
   "name": "InsertOneWord Companion",
   "short_name": "IOW",
   "start_url": "/InsertOneWord-Companion/",
+  "scope": "/InsertOneWord-Companion/",
   "display": "standalone",
   "theme_color": "#2b5876",
   "background_color": "#4e4376"
