@@ -5,6 +5,7 @@ const BASE_PATH = "/InsertOneWord-Companion/";
 const ASSETS = [
   BASE_PATH,
   BASE_PATH + "index.html",
+  BASE_PATH + "notice.html",  // ← 追加
   BASE_PATH + "style.css",
   BASE_PATH + "manifest.json",
 
