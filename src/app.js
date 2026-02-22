@@ -118,13 +118,17 @@ function showCompletionScreen() {
   clearTimers();
   disableButtons();
 
-  wordEl.textContent = "🎉 全単語クリア！";
-  answerEl.textContent = "新しい単語を追加すると表示されます。";
+  state.phase = "completed";
 
+  // 英語エリア（上）
+  wordEl.textContent = "🎉 All words completed!";
   wordEl.classList.add("reveal");
+
+  // 日本語エリア（下）
+  answerEl.textContent = "新しい単語が追加されると表示されます。";
   answerEl.classList.add("reveal");
 
-  // 再チャレンジボタン表示
+  // ボタン変更
   btnKnown.textContent = "もう一度やる / Retry";
   btnUnknown.style.display = "none";
 
