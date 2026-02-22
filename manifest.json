@@ -1,9 +1,28 @@
 {
-  "name": "InsertOneWord Companion",
-  "short_name": "IOW",
+  "name": "Insert One Word – Study Companion",
+  "short_name": "IOW Study",
+  "description": "A gentle, pastel-themed word practice companion.",
   "start_url": "/InsertOneWord-Companion/",
-  "scope": "/InsertOneWord-Companion/",
   "display": "standalone",
-  "theme_color": "#2b5876",
-  "background_color": "#4e4376"
+  "orientation": "portrait",
+  "theme_color": "#B8E0D2",
+  "background_color": "#F4F9F9",
+  "icons": [
+    {
+      "src": "/InsertOneWord-Companion/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/InsertOneWord-Companion/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/InsertOneWord-Companion/icons/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
 }
