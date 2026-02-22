@@ -189,28 +189,23 @@ body {
 }
 
 /* =====================
-   利用上の注意リンク（ボタン風）
+   利用上の注意リンク（こっそり）
 ===================== */
 #notice-link-container {
-  margin-top: 16px;
+  margin-top: 12px;
   text-align: center;
 }
 
 #notice-link-container a {
+  font-size: 0.85rem;
+  color: #4e6a7a; /* ボタンより薄めで控えめ */
+  text-decoration: underline; /* リンクだとわかる程度に */
+  background: transparent;
+  padding: 2px 0;
   display: inline-block;
-  font-size: 0.9rem;
-  padding: 6px 14px;
-
-  border-radius: 20px;
-  background: #f7c8e0; /* ピンク系パステル */
-  color: #2c3e50;
-  text-decoration: none;
-
-  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
-  transition: all 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 #notice-link-container a:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 5px 14px rgba(0,0,0,0.12);
+  color: #2c3e50; /* ホバーで少し濃くなる程度 */
 }
