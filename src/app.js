@@ -16,6 +16,7 @@ init();
 
 function init() {
   state.wordStatus = loadStatus() || {};
+  cleanupStatus();
   state.visitInfo = updateVisit();
 
   btnReset.style.display = "none";
@@ -154,6 +155,18 @@ function resetProgress() {
   btnReset.style.display = "none";
 
   nextWord();
+}
+
+function cleanupStatus() {
+  const validIds = new Set(words.map(w => w.id));
+
+  Object.keys(state.wordStatus).forEach(id => {
+    if (!validIds.has(Number(id))) {
+      delete state.wordStatus[id];
+    }
+  });
+
+  saveStatus(state.wordStatus);
 }
 
 // ボタン処理
