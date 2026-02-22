@@ -114,11 +114,51 @@ function clearTimers() {
   state.timerIds = [];
 }
 
+function showCompletionScreen() {
+  clearTimers();
+  disableButtons();
+
+  wordEl.textContent = "🎉 全単語クリア！";
+  answerEl.textContent = "新しい単語を追加すると表示されます。";
+
+  wordEl.classList.add("reveal");
+  answerEl.classList.add("reveal");
+
+  // 再チャレンジボタン表示
+  btnKnown.textContent = "もう一度やる / Retry";
+  btnUnknown.style.display = "none";
+
+  btnKnown.disabled = false;
+  btnKnown.onclick = resetProgress;
+}
+
+function resetProgress() {
+  state.wordStatus = {};
+  saveStatus(state.wordStatus);
+
+  // ボタン戻す
+  btnKnown.textContent = "覚えた / Known";
+  btnUnknown.style.display = "inline-block";
+
+  nextWord();
+}
+
 // ボタン処理
 btnKnown.onclick = () => {
   if (state.phase !== "decision") return;
+
   state.wordStatus[state.currentWord.id] = "known";
   saveStatus(state.wordStatus);
+
+  const allKnown = words.every(
+    w => state.wordStatus[w.id] === "known"
+  );
+
+  if (allKnown) {
+    showCompletionScreen();
+    return; // ← ここ重要
+  }
+
   nextWord();
 };
 
