@@ -187,3 +187,30 @@ body {
   #word { font-size: 2.4rem; }
   #answer { font-size: 1.7rem; }
 }
+
+/* =====================
+   利用上の注意リンク（ボタン風）
+===================== */
+#notice-link-container {
+  margin-top: 16px;
+  text-align: center;
+}
+
+#notice-link-container a {
+  display: inline-block;
+  font-size: 0.9rem;
+  padding: 6px 14px;
+
+  border-radius: 20px;
+  background: #f7c8e0; /* ピンク系パステル */
+  color: #2c3e50;
+  text-decoration: none;
+
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+  transition: all 0.2s ease;
+}
+
+#notice-link-container a:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 14px rgba(0,0,0,0.12);
+}
