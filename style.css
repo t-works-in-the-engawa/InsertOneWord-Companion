@@ -37,6 +37,15 @@ body {
   transform: scale(1.1);
 }
 
+/* 完了画面専用サイズ */
+.flash-card.completed-en {
+  font-size: 2.2rem !important;
+}
+
+.flash-card.completed-ja {
+  font-size: 1.8rem !important;
+}
+
 #word {
   font-size: 3rem;
   margin-bottom: 20px;
