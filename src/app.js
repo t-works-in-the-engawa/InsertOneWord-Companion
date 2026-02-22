@@ -8,7 +8,7 @@ const answerEl = document.getElementById("answer");
 
 const btnKnown = document.getElementById("known");
 const btnUnknown = document.getElementById("unknown");
-const btnReset = document.getElementById("reset");
+const btnReset = document.getElementById("reset");navigator.serviceWorker.register("/InsertOneWord-Companion/sw.js");
 
 const timerBar = document.getElementById("timer-bar");
 
@@ -201,6 +201,6 @@ btnReset.onclick = resetProgress;
 // サービスワーカー
 function registerServiceWorker() {
   if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("sw.js");
+    navigator.serviceWorker.register("/InsertOneWord-Companion/sw.js");
   }
 }
