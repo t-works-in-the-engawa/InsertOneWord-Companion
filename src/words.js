@@ -58,5 +58,11 @@ export const words = [
   { id: "expect_en_jp", en: "expect", ja: "期待する", dir: "en-jp", video: "#" },
   { id: "expect_jp_en", en: "expect", ja: "期待する", dir: "jp-en", video: "#" },
   { id: "culture_en_jp", en: "culture", ja: "文化", dir: "en-jp", video: "#" },
-  { id: "culture_jp_en", en: "culture", ja: "文化", dir: "jp-en", video: "#" }
+  { id: "culture_jp_en", en: "culture", ja: "文化", dir: "jp-en", video: "#" },
+  { id: "society_en_jp", en: "society", ja: "社会", dir: "en-jp", video: "#" },
+  { id: "society_jp_en", en: "society", ja: "社会", dir: "jp-en", video: "#" },
+  { id: "environment_en_jp", en: "environment", ja: "環境", dir: "en-jp", video: "#" },
+  { id: "environment_jp_en", en: "environment", ja: "環境", dir: "jp-en", video: "#" },
+  { id: "reason_en_jp", en: "reason", ja: "理由", dir: "en-jp", video: "#" },
+  { id: "reason_jp_en", en: "reason", ja: "理由", dir: "jp-en", video: "#" }
 ];
