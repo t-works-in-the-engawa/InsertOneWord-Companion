@@ -58,5 +58,9 @@ export const words = [
   { id: "purpose_en_jp", en: "purpose", ja: "目的", dir: "en-jp", video: "#" },
   { id: "purpose_jp_en", en: "purpose", ja: "目的", dir: "jp-en", video: "#" },
   { id: "effect_en_jp", en: "effect", ja: "影響", dir: "en-jp", video: "#" },
-  { id: "effect_jp_en", en: "effect", ja: "影響", dir: "jp-en", video: "#" }
+  { id: "effect_jp_en", en: "effect", ja: "影響", dir: "jp-en", video: "#" },
+  { id: "information_en_jp", en: "information", ja: "情報", dir: "en-jp", video: "#" },
+  { id: "information_jp_en", en: "information", ja: "情報", dir: "jp-en", video: "#" },
+  { id: "technology_en_jp", en: "technology", ja: "技術", dir: "en-jp", video: "#" },
+  { id: "technology_jp_en", en: "technology", ja: "技術", dir: "jp-en", video: "#" }
 ];
