@@ -62,5 +62,17 @@ export const words = [
   { id: "information_en_jp", en: "information", ja: "情報", dir: "en-jp", video: "#" },
   { id: "information_jp_en", en: "information", ja: "情報", dir: "jp-en", video: "#" },
   { id: "technology_en_jp", en: "technology", ja: "技術", dir: "en-jp", video: "#" },
-  { id: "technology_jp_en", en: "technology", ja: "技術", dir: "jp-en", video: "#" }
+  { id: "technology_jp_en", en: "technology", ja: "技術", dir: "jp-en", video: "#" },
+  { id: "tradition_en_jp", en: "tradition", ja: "伝統", dir: "en-jp", video: "#" },
+  { id: "tradition_jp_en", en: "tradition", ja: "伝統", dir: "jp-en", video: "#" },
+  { id: "history_en_jp", en: "history", ja: "歴史", dir: "en-jp", video: "#" },
+  { id: "history_jp_en", en: "history", ja: "歴史", dir: "jp-en", video: "#" },
+  { id: "population_en_jp", en: "population", ja: "人口", dir: "en-jp", video: "#" },
+  { id: "population_jp_en", en: "population", ja: "人口", dir: "jp-en", video: "#" },
+  { id: "education_en_jp", en: "education", ja: "教育", dir: "en-jp", video: "#" },
+  { id: "education_jp_en", en: "education", ja: "教育", dir: "jp-en", video: "#" },
+  { id: "example_en_jp", en: "example", ja: "例", dir: "en-jp", video: "#" },
+  { id: "example_jp_en", en: "example", ja: "例", dir: "jp-en", video: "#" },
+  { id: "idea_en_jp", en: "idea", ja: "考え", dir: "en-jp", video: "#" },
+  { id: "idea_jp_en", en: "idea", ja: "考え", dir: "jp-en", video: "#" }
 ];
