@@ -1,6 +1,4 @@
 export const words = [
-  { id: "provide_en_jp", en: "provide", ja: "提供する", dir: "en-jp", video: "#" },
-  { id: "provide_jp_en", en: "provide", ja: "提供する", dir: "jp-en", video: "#" },
   { id: "include_en_jp", en: "include", ja: "含む", dir: "en-jp", video: "#" },
   { id: "include_jp_en", en: "include", ja: "含む", dir: "jp-en", video: "#" },
   { id: "remain_en_jp", en: "remain", ja: "残る", dir: "en-jp", video: "#" },
@@ -58,5 +56,7 @@ export const words = [
   { id: "example_en_jp", en: "example", ja: "例", dir: "en-jp", video: "#" },
   { id: "example_jp_en", en: "example", ja: "例", dir: "jp-en", video: "#" },
   { id: "idea_en_jp", en: "idea", ja: "考え", dir: "en-jp", video: "#" },
-  { id: "idea_jp_en", en: "idea", ja: "考え", dir: "jp-en", video: "#" }
+  { id: "idea_jp_en", en: "idea", ja: "考え", dir: "jp-en", video: "#" },
+  { id: "level_en_jp", en: "level", ja: "水準", dir: "en-jp", video: "#" },
+  { id: "level_jp_en", en: "level", ja: "水準", dir: "jp-en", video: "#" }
 ];
