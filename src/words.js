@@ -60,5 +60,7 @@ export const words = [
   { id: "stoptodo_en_jp", en: "stop to do", ja: "〜するために立ち止まる", dir: "en-jp", video: "#" },
   { id: "stoptodo_jp_en", en: "stop to do", ja: "〜するために立ち止まる", dir: "jp-en", video: "#" },
   { id: "method_en_jp", en: "method", ja: "方法", dir: "en-jp", video: "#" },
-  { id: "method_jp_en", en: "method", ja: "方法", dir: "jp-en", video: "#" }
+  { id: "method_jp_en", en: "method", ja: "方法", dir: "jp-en", video: "#" },
+  { id: "solution_en_jp", en: "solution", ja: "解決策", dir: "en-jp", video: "#" },
+  { id: "solution_jp_en", en: "solution", ja: "解決策", dir: "jp-en", video: "#" }
 ];
