@@ -62,5 +62,9 @@ export const words = [
   { id: "method_en_jp", en: "method", ja: "方法", dir: "en-jp", video: "#" },
   { id: "method_jp_en", en: "method", ja: "方法", dir: "jp-en", video: "#" },
   { id: "solution_en_jp", en: "solution", ja: "解決策", dir: "en-jp", video: "#" },
-  { id: "solution_jp_en", en: "solution", ja: "解決策", dir: "jp-en", video: "#" }
+  { id: "solution_jp_en", en: "solution", ja: "解決策", dir: "jp-en", video: "#" },
+  { id: "issue_en_jp", en: "issue", ja: "問題点", dir: "en-jp", video: "#" },
+  { id: "issue_jp_en", en: "issue", ja: "問題点", dir: "jp-en", video: "#" },
+  { id: "topic_en_jp", en: "topic", ja: "話題", dir: "en-jp", video: "#" },
+  { id: "topic_jp_en", en: "topic", ja: "話題", dir: "jp-en", video: "#" }
 ];
