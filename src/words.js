@@ -66,5 +66,7 @@ export const words = [
   { id: "issue_en_jp", en: "issue", ja: "問題点", dir: "en-jp", video: "#" },
   { id: "issue_jp_en", en: "issue", ja: "問題点", dir: "jp-en", video: "#" },
   { id: "topic_en_jp", en: "topic", ja: "話題", dir: "en-jp", video: "#" },
-  { id: "topic_jp_en", en: "topic", ja: "話題", dir: "jp-en", video: "#" }
+  { id: "topic_jp_en", en: "topic", ja: "話題", dir: "jp-en", video: "#" },
+  { id: "fact_en_jp", en: "fact", ja: "事実", dir: "en-jp", video: "#" },
+  { id: "fact_jp_en", en: "fact", ja: "事実", dir: "jp-en", video: "#" }
 ];
