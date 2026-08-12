@@ -1,8 +1,8 @@
 export const words = [
   { id: "foroneself_en_jp", en: "for oneself", ja: "自分自身のために", dir: "en-jp", video: "#" },
   { id: "foroneself_jp_en", en: "for oneself", ja: "自分自身のために", dir: "jp-en", video: "#" },
-  { id: "clearly_en_jp", en: "clearly", ja: "はっきりと", dir: "en-jp", video: "#" },
-  { id: "clearly_jp_en", en: "clearly", ja: "はっきりと", dir: "jp-en", video: "#" },
+  { id: "usedtodo_en_jp", en: "used to do", ja: "以前は～したものだ", dir: "en-jp", video: "#" },
+  { id: "usedtodo_jp_en", en: "used to do", ja: "以前は～したものだ", dir: "jp-en", video: "#" },
   { id: "simply_en_jp", en: "simply", ja: "簡単に", dir: "en-jp", video: "#" },
   { id: "simply_jp_en", en: "simply", ja: "簡単に", dir: "jp-en", video: "#" },
   { id: "quickly_en_jp", en: "quickly", ja: "素早く", dir: "en-jp", video: "#" },
