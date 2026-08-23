@@ -24,7 +24,7 @@ export const words = [
   { id: "thinkaboutA_en_jp", en: "think about A", ja: "Aについて考える", dir: "en-jp", video: "#" },
   { id: "thinkaboutA_jp_en", en: "think about A", ja: "Aについて考える", dir: "jp-en", video: "#" },
   { id: "thinkofA_en_jp", en: "think of A", ja: "Aのことを考える Aを思いつく", dir: "en-jp", video: "#" },
-  { id: "thinkofA_jp_en", en: "think of A", ja: "Aのことを考える　Aを思いつく", dir: "jp-en", video: "#" },
+  { id: "thinkofA_jp_en", en: "think of A", ja: "Aのことを考える Aを思いつく", dir: "jp-en", video: "#" },
   { id: "only_en_jp", en: "only", ja: "ただ〜だけ", dir: "en-jp", video: "#" },
   { id: "only_jp_en", en: "only", ja: "ただ〜だけ", dir: "jp-en", video: "#" },
   { id: "just_en_jp", en: "just", ja: "ちょうど／ただ", dir: "en-jp", video: "#" },
