@@ -1,4 +1,4 @@
-const CACHE_NAME = "iow-cache-v20260830.00"; // ← 必ずバージョン上げる
+const CACHE_NAME = "iow-cache-v20260831.00"; // ← 必ずバージョン上げる
 
 const BASE_PATH = "/InsertOneWord-Companion/";
 
