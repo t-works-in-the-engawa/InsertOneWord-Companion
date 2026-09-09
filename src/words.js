@@ -55,8 +55,8 @@ export const words = [
   { id: "getoffA_jp_en", en: "get off A", ja: "Aを降りる", dir: "jp-en", video: "#" },
   { id: "turnonA_en_jp", en: "turn on A", ja: "Aのスイッチを入れる", dir: "en-jp", video: "#" },
   { id: "turnonA_jp_en", en: "turn on A", ja: "Aのスイッチを入れる", dir: "jp-en", video: "#" },
-  { id: "atmost_en_jp", en: "at most", ja: "多くても", dir: "en-jp", video: "#" },
-  { id: "atmost_jp_en", en: "at most", ja: "多くても", dir: "jp-en", video: "#" },
-  { id: "byoneself_en_jp", en: "by oneself", ja: "自分で", dir: "en-jp", video: "#" },
-  { id: "byoneself_jp_en", en: "by oneself", ja: "自分で", dir: "jp-en", video: "#" }
+  { id: "turnoffA_en_jp", en: "turn off A", ja: "Aのスイッチを切る", dir: "en-jp", video: "#" },
+  { id: "turnoffA_jp_en", en: "turn off A", ja: "Aのスイッチを切る", dir: "jp-en", video: "#" },
+  { id: "putonA_en_jp", en: "put on A", ja: "Aを身につける", dir: "en-jp", video: "#" },
+  { id: "putonA_jp_en", en: "put on A", ja: "Aを身につける", dir: "jp-en", video: "#" }
 ];
