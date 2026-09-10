@@ -1,6 +1,6 @@
 export const words = [
-  { id: "foroneself_en_jp", en: "for oneself", ja: "自分自身のために", dir: "en-jp", video: "#" },
-  { id: "foroneself_jp_en", en: "for oneself", ja: "自分自身のために", dir: "jp-en", video: "#" },
+  { id: "takeoffA_en_jp", en: "take off A", ja: "Aを脱ぐ/Aを取り外す", dir: "en-jp", video: "#" },
+  { id: "takeoffA_jp_en", en: "take off A", ja: "Aを脱ぐ/Aを取り外す", dir: "jp-en", video: "#" },
   { id: "usedtodo_en_jp", en: "used to do", ja: "以前は～したものだ", dir: "en-jp", video: "#" },
   { id: "usedtodo_jp_en", en: "used to do", ja: "以前は～したものだ", dir: "jp-en", video: "#" },
   { id: "beusedtodoing_en_jp", en: "be used to doing", ja: "することに慣れている", dir: "en-jp", video: "#" },
