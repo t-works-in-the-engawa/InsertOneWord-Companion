@@ -57,6 +57,6 @@ export const words = [
   { id: "tellAaboutB_jp_en", en: "tell A about B", ja: "AにBについて話す", dir: "jp-en", video: "#" },
   { id: "askAforB_en_jp", en: "ask A for B", ja: "AにBを求める", dir: "en-jp", video: "#" },
   { id: "askAforB_jp_en", en: "ask A for B", ja: "AにBを求める", dir: "jp-en", video: "#" },
-  { id: "putonA_en_jp", en: "put on A", ja: "Aを身につける", dir: "en-jp", video: "#" },
-  { id: "putonA_jp_en", en: "put on A", ja: "Aを身につける", dir: "jp-en", video: "#" }
+  { id: "thankAforB_en_jp", en: "thank A for B", ja: "BについてAに感謝する", dir: "en-jp", video: "#" },
+  { id: "thankAforB_jp_en", en: "thank A for B", ja: "BについてAに感謝する", dir: "jp-en", video: "#" }
 ];
