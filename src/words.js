@@ -1,6 +1,6 @@
 export const words = [
-  { id: "takeoffA_en_jp", en: "take off A", ja: "Aを脱ぐ/Aを取り外す", dir: "en-jp", video: "#" },
-  { id: "takeoffA_jp_en", en: "take off A", ja: "Aを脱ぐ/Aを取り外す", dir: "jp-en", video: "#" },
+  { id: "helpAwithB_en_jp", en: "help A with B", ja: "BについてAを手伝う", dir: "en-jp", video: "#" },
+  { id: "helpAwithB_jp_en", en: "help A with B", ja: "BについてAを手伝う", dir: "jp-en", video: "#" },
   { id: "pickupA_en_jp", en: "pick up A", ja: "Aを拾う/Aを迎えに行く", dir: "en-jp", video: "#" },
   { id: "pickupA_jp_en", en: "pick up A", ja: "Aを拾う/Aを迎えに行く", dir: "jp-en", video: "#" },
   { id: "findoutA_en_jp", en: "find out A", ja: "Aを知る/Aを突き止める", dir: "en-jp", video: "#" },
