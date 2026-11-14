@@ -1,3 +1,4 @@
+
 export const words = [
   { id: "helpAwithB_en_jp", en: "help A with B", ja: "BについてAを手伝う", dir: "en-jp", video: "#" },
   { id: "helpAwithB_jp_en", en: "help A with B", ja: "BについてAを手伝う", dir: "jp-en", video: "#" },
@@ -31,8 +32,8 @@ export const words = [
   { id: "noticeA_jp_en", en: "notice A", ja: "Aに気づく", dir: "jp-en", video: "#" },
   { id: "rememberA_en_jp", en: "remember A", ja: "Aを覚えている/Aを思い出す", dir: "en-jp", video: "#" },
   { id: "rememberA_jp_en", en: "remember A", ja: "Aを覚えている/Aを思い出す", dir: "jp-en", video: "#" },
-  { id: "foegatA_en_jp", en: "foegat A", ja: "Aを忘れる", dir: "en-jp", video: "#" },
-  { id: "foegatA_jp_en", en: "foegat A", ja: "Aを忘れる", dir: "jp-en", video: "#" },
+  { id: "forgetA_en_jp", en: "forget A", ja: "Aを忘れる", dir: "en-jp", video: "#" },
+  { id: "forgetA_jp_en", en: "forget A", ja: "Aを忘れる", dir: "jp-en", video: "#" },
   { id: "understandA_en_jp", en: "understand A", ja: "Aを理解する", dir: "en-jp", video: "#" },
   { id: "understandA_jp_en", en: "understand A", ja: "Aを理解する", dir: "jp-en", video: "#" },
   { id: "meanA_en_jp", en: "mean A", ja: "Aを意味する", dir: "en-jp", video: "#" },
@@ -49,14 +50,14 @@ export const words = [
   { id: "grow_jp_en", en: "grow", ja: "成長する/育つ", dir: "jp-en", video: "#" },
   { id: "win_en_jp", en: "win", ja: "勝つ/(賞など)を獲得する", dir: "en-jp", video: "#" },
   { id: "win_jp_en", en: "win", ja: "勝つ/(賞など)を獲得する", dir: "jp-en", video: "#" },
-  { id: "lendAtoB_en_jp", en: "lend A to B", ja: "BにAを貸す", dir: "en-jp", video: "#" },
-  { id: "lendAtoB_jp_en", en: "lend A to B", ja: "BにAを貸す", dir: "jp-en", video: "#" },
-  { id: "teachAtoB_en_jp", en: "teach A to B", ja: "BにAを教える", dir: "en-jp", video: "#" },
-  { id: "teachAtoB_jp_en", en: "teach A to B", ja: "BにAを教える", dir: "jp-en", video: "#" },
-  { id: "tellAaboutB_en_jp", en: "tell A about B", ja: "AにBについて話す", dir: "en-jp", video: "#" },
-  { id: "tellAaboutB_jp_en", en: "tell A about B", ja: "AにBについて話す", dir: "jp-en", video: "#" },
-  { id: "askAforB_en_jp", en: "ask A for B", ja: "AにBを求める", dir: "en-jp", video: "#" },
-  { id: "askAforB_jp_en", en: "ask A for B", ja: "AにBを求める", dir: "jp-en", video: "#" },
+  { id: "lose_en_jp", en: "lose", ja: "失う/負ける", dir: "en-jp", video: "#" },
+  { id: "lose_jp_en", en: "lose", ja: "失う/負ける", dir: "jp-en", video: "#" },
+  { id: "spend_en_jp", en: "spend", ja: "(時間・お金)を使う", dir: "en-jp", video: "#" },
+  { id: "spend_jp_en", en: "spend", ja: "(時間・お金)を使う", dir: "jp-en", video: "#" },
+  { id: "costA_en_jp", en: "cost A", ja: "Aがかかる(費用)", dir: "en-jp", video: "#" },
+  { id: "costA_jp_en", en: "cost A", ja: "Aがかかる(費用)", dir: "jp-en", video: "#" },
+  { id: "chooseA_en_jp", en: "choose A", ja: "Aを選ぶ", dir: "en-jp", video: "#" },
+  { id: "chooseA_jp_en", en: "choose A", ja: "Aを選ぶ", dir: "jp-en", video: "#" },
   { id: "thankAforB_en_jp", en: "thank A for B", ja: "BについてAに感謝する", dir: "en-jp", video: "#" },
   { id: "thankAforB_jp_en", en: "thank A for B", ja: "BについてAに感謝する", dir: "jp-en", video: "#" }
 ];
